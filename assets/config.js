@@ -15,7 +15,7 @@ window.TM_CONFIG = {
   // Autodesk App Store listing (after it is approved)
   autodeskUrl: "https://apps.autodesk.com/",
 
-  supportEmail: "" // e.g. "transmittalmanager.help@gmail.com" - leave empty to hide contact links
+  supportEmail: "transmittalmanager.help@gmail.com"
 };
 
 document.addEventListener("DOMContentLoaded", function () {
