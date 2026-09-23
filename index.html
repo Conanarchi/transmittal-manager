@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transmittal Manager | Drawing transmittal software for architects &amp; engineers</title>
+    <meta name="description" content="Windows app for architecture and engineering offices: drawing registers, revision transmittals, cover letters and complete issue logs. Exports DOCX, XLSX and PDF. Pay once, works offline. Free 14-day trial." />
+    <meta property="og:title" content="Transmittal Manager - every drawing issue, recorded" />
+    <meta property="og:description" content="Drawing registers, transmittals, cover letters and issue logs for architecture & engineering offices. Free 14-day trial." />
+    <meta property="og:image" content="assets/img/app-dashboard.webp" />
+    <link rel="icon" href="assets/app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <script src="assets/config.js"></script>
+    <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+        <symbol id="i-circle-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+        <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+        <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h.01M3 12h.01M3 19h.01M8 5h13M8 12h13M8 19h13"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+        <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+        <symbol id="i-file-sheet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h2M14 13h2M8 17h2M14 17h2"/></symbol>
+        <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+        <symbol id="i-wifi-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h.01M8.5 16.4a5 5 0 0 1 7 0M2 8.8a15 15 0 0 1 4.2-2.7M22 8.8a15 15 0 0 0-11.3-3.7M5 12.9a10 10 0 0 1 5.2-2.7M19 12.9a10 10 0 0 0-2.3-1.7M2 2l20 20"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+        <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.8 9.8 0 0 0-6.7 2.7L3 8"/><path d="M3 3v5h5M12 7v5l4 2"/></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.8 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol>
+        <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 20h4v-3"/></symbol>
+        <symbol id="i-languages" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9a1 1 0 0 1-.7 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z"/><path d="m9 12 2 2 4-4"/></symbol>
+        <symbol id="i-import" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 11l4 4 4-4"/><path d="M8 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4"/></symbol>
+      </defs>
+    </svg>
+
+    <header class="site-header" id="top">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top"><img src="assets/app-icon.png" alt="" />Transmittal Manager</a>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+        <nav class="nav" id="nav" aria-label="Main">
+          <a href="#features">Features</a>
+          <a href="#documents">Documents</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a class="btn small" data-download href="#">Free trial</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="wrap">
+          <div class="hero-copy">
+            <span class="eyebrow">Document control for architects &amp; engineers</span>
+            <h1>Every drawing issue,<br /><em>on record.</em></h1>
+            <p class="lead">Keep your drawing registers, revision transmittals, cover letters and issue logs in one Windows app. Send clean, branded documents in minutes, not an afternoon in Excel.</p>
+            <div class="hero-actions">
+              <a class="btn" data-download href="#"><svg><use href="#i-download" /></svg>Download free trial</a>
+              <a class="btn ghost" href="#pricing">See pricing</a>
+            </div>
+            <p class="fine">14 days, every feature, no credit card &middot; Windows 10 &amp; 11</p>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="frame">
+              <div class="frame-bar"><i></i><i></i><i></i><span>Transmittal Manager</span></div>
+              <img src="assets/img/app-dashboard.webp" width="1600" height="1000" alt="Transmittal Manager dashboard with recent transmittals across projects" />
+            </div>
+            <div class="float-doc"><img src="assets/img/doc-transmittal.webp" width="909" height="1286" alt="Exported transmittal note PDF" /></div>
+            <div class="float-tag"><svg><use href="#i-circle-check" /></svg><div><strong>NLA-2614-TRANS-2026-3</strong>Issued &middot; 14 sheets &middot; PDF + DOCX + XLSX</div></div>
+          </div>
+
+          <div class="stats reveal">
+            <div><strong>4 steps</strong><span>from register to issued transmittal</span></div>
+            <div><strong>DOCX &middot; XLSX &middot; PDF</strong><span>exported with your letterhead</span></div>
+            <div><strong>100% offline</strong><span>your data stays on your PC or server</span></div>
+            <div><strong>EN / AR</strong><span>English and Arabic cover letters</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="section" id="features">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="sheet-tag"><b>A-100</b> Features</div>
+            <h2>Built the way a document controller works.</h2>
+            <p>Set up each project once. From then on, every submission takes a few clicks and every revision is tracked for you.</p>
+          </div>
+
+          <div class="feature reveal">
+            <div class="feature-copy">
+              <div class="icon-badge"><svg><use href="#i-layers" /></svg></div>
+              <h3>A live drawing register for every project</h3>
+              <p>Sheets are grouped by discipline, with current revision, scale and the last transmittal each one went out on.</p>
+              <ul class="checks">
+                <li><svg><use href="#i-check" /></svg>Import hundreds of sheets from an Excel template in one go</li>
+                <li><svg><use href="#i-check" /></svg>Full revision history per drawing: what was sent, when, and on which reference</li>
+                <li><svg><use href="#i-check" /></svg>Colour-coded projects, drag-to-reorder, one-click register export</li>
+              </ul>
+            </div>
+            <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>Projects &rsaquo; Drawing register</span></div><img src="assets/img/app-register.webp" loading="lazy" width="1600" height="1000" alt="Drawing register grouped by discipline with revisions" /></div>
+          </div>
+
+          <div class="feature flip reveal">
+            <div class="feature-copy">
+              <div class="icon-badge"><svg><use href="#i-send" /></svg></div>
+              <h3>Issue a transmittal in four steps</h3>
+              <p>Pick the project, fill in the recipient, tick the sheets and set the new revisions. References are numbered for you.</p>
+              <ul class="checks">
+                <li><svg><use href="#i-check" /></svg>Select a whole discipline at once; add a missing sheet inline</li>
+                <li><svg><use href="#i-check" /></svg>Save drafts, preview, then issue. Issued records are locked</li>
+                <li><svg><use href="#i-check" /></svg>Attach cloud links with an automatic QR code on the note</li>
+              </ul>
+            </div>
+            <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>New transmittal &rsaquo; Step 3</span></div><img src="assets/img/app-wizard.webp" loading="lazy" width="1600" height="1000" alt="Selecting drawing sheets and revisions in the transmittal wizard" /></div>
+          </div>
+
+          <div class="feature reveal">
+            <div class="feature-copy">
+              <div class="icon-badge"><svg><use href="#i-list" /></svg></div>
+              <h3>A searchable log of everything you've sent</h3>
+              <p>Find any submission by reference, project or subject, and see exactly which drawings and revisions it contained.</p>
+              <ul class="checks">
+                <li><svg><use href="#i-check" /></svg>Attach the signed, stamped copy when it comes back</li>
+                <li><svg><use href="#i-check" /></svg>Export the complete log to Excel, one sheet per project</li>
+                <li><svg><use href="#i-check" /></svg>Re-export any past transmittal whenever you need it</li>
+              </ul>
+            </div>
+            <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>Transmittal log</span></div><img src="assets/img/app-log.webp" loading="lazy" width="1600" height="1000" alt="Transmittal log with an expanded issued transmittal" /></div>
+          </div>
+
+          <div class="feature flip reveal">
+            <div class="feature-copy">
+              <div class="icon-badge"><svg><use href="#i-mail" /></svg></div>
+              <h3>Cover letters, in English or Arabic</h3>
+              <p>Write outgoing letters with automatic references and your letterhead. Arabic letters come out right-to-left, correctly laid out.</p>
+              <ul class="checks">
+                <li><svg><use href="#i-check" /></svg>Fill recipients from your saved company and contact library</li>
+                <li><svg><use href="#i-check" /></svg>Track draft, sent and archived letters</li>
+                <li><svg><use href="#i-check" /></svg>Keep the signed copy attached to the record</li>
+              </ul>
+            </div>
+            <div class="frame"><div class="frame-bar"><i></i><i></i><i></i><span>Cover letters</span></div><img src="assets/img/app-letter.webp" loading="lazy" width="1600" height="1000" alt="Editing a cover letter with library contacts" /></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCUMENTS -->
+      <section class="section alt" id="documents">
+        <div class="wrap">
+          <div class="section-head center">
+            <div class="sheet-tag"><b>A-200</b> Output</div>
+            <h2>Documents your clients will take seriously.</h2>
+            <p>Every export carries your company name, logo and contact details. These are real exports from the app.</p>
+          </div>
+          <div class="docs">
+            <figure class="doc reveal">
+              <div class="paper"><img src="assets/img/doc-transmittal.webp" loading="lazy" width="909" height="1286" alt="Transmittal note" /></div>
+              <figcaption><strong>Transmittal note</strong><span>Reference, recipient, QR link to the package and a signature block.</span><div class="formats"><b>PDF</b><b>DOCX</b></div></figcaption>
+            </figure>
+            <figure class="doc reveal">
+              <div class="paper"><img src="assets/img/doc-drawing-list.webp" loading="lazy" width="909" height="1286" alt="Detailed drawing list" /></div>
+              <figcaption><strong>Detailed drawing list</strong><span>Every sheet grouped by discipline with revision and issue date.</span><div class="formats"><b>PDF</b><b>XLSX</b></div></figcaption>
+            </figure>
+            <figure class="doc reveal">
+              <div class="paper"><img src="assets/img/doc-cover-letter.webp" loading="lazy" width="909" height="1286" alt="Cover letter" /></div>
+              <figcaption><strong>Cover letter</strong><span>Your letterhead, automatic reference and sender details.</span><div class="formats"><b>PDF</b><b>DOCX</b></div></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW -->
+      <section class="section" id="how">
+        <div class="wrap">
+          <div class="section-head center">
+            <div class="sheet-tag"><b>A-300</b> Workflow</div>
+            <h2>From setup to signed copy.</h2>
+          </div>
+          <div class="steps reveal">
+            <div class="step"><div class="num"><svg><use href="#i-building" /></svg></div><small>01</small><h3>Create the project</h3><p>Client, contact and disciplines, set up once.</p></div>
+            <div class="step"><div class="num"><svg><use href="#i-import" /></svg></div><small>02</small><h3>Build the register</h3><p>Add sheets or import them from Excel.</p></div>
+            <div class="step"><div class="num"><svg><use href="#i-send" /></svg></div><small>03</small><h3>Issue the package</h3><p>Tick sheets, set revisions, export all three documents.</p></div>
+            <div class="step"><div class="num"><svg><use href="#i-pen" /></svg></div><small>04</small><h3>Keep the evidence</h3><p>Attach the signed copy. The log updates itself.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY -->
+      <section class="section alt">
+        <div class="wrap">
+          <div class="section-head center">
+            <div class="sheet-tag"><b>A-400</b> Why offices choose it</div>
+            <h2>Serious document control, without an enterprise system.</h2>
+          </div>
+          <div class="grid3">
+            <div class="tile reveal"><svg><use href="#i-wifi-off" /></svg><h3>Works offline</h3><p>A normal Windows app. No logins, no browser tabs, no outages.</p></div>
+            <div class="tile reveal"><svg><use href="#i-users" /></svg><h3>Shared with your team</h3><p>Point every PC at one server folder. Changes sync between colleagues within seconds.</p></div>
+            <div class="tile reveal"><svg><use href="#i-shield" /></svg><h3>Your data stays yours</h3><p>One database file on your own PC or server, backed up in one click. We never see it.</p></div>
+            <div class="tile reveal"><svg><use href="#i-history" /></svg><h3>Audit-ready history</h3><p>Every revision of every sheet is tied to the transmittal it went out on.</p></div>
+            <div class="tile reveal"><svg><use href="#i-link" /></svg><h3>Any cloud or server link</h3><p>Store package links and server paths with the record, and open them in one click.</p></div>
+            <div class="tile reveal"><svg><use href="#i-languages" /></svg><h3>Made for the region</h3><p>English and Arabic letters, with reference numbering you set to your office's format.</p></div>
+          </div>
+          <div class="chips">
+            <span>Autodesk Docs</span><span>ACC</span><span>BIM 360</span><span>SharePoint</span><span>OneDrive</span><span>Dropbox</span><span>Google Drive</span><span>Nextcloud</span><span>Notion export</span><span>Office server</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="section" id="pricing">
+        <div class="wrap">
+          <div class="section-head center">
+            <div class="sheet-tag"><b>A-500</b> Pricing</div>
+            <h2>Pay once. Use it for good.</h2>
+            <p>No subscription. Each licence covers one user and includes every 1.x update.</p>
+          </div>
+          <div class="pricing">
+            <article class="plan reveal">
+              <h3>Single user</h3>
+              <p class="price">$149</p><p class="per">one-time payment</p>
+              <ul><li><svg><use href="#i-check" /></svg>1 user licence</li><li><svg><use href="#i-check" /></svg>Every feature</li><li><svg><use href="#i-check" /></svg>Free 1.x updates</li><li><svg><use href="#i-check" /></svg>Email support</li></ul>
+              <a class="btn ghost lemonsqueezy-button" data-checkout="single" href="#">Buy single licence</a>
+            </article>
+            <article class="plan featured reveal">
+              <p class="tag">Most popular</p>
+              <h3>Office &middot; 5 users</h3>
+              <p class="price">$549</p><p class="per">one-time &middot; $110 per user</p>
+              <ul><li><svg><use href="#i-check" /></svg>5 user licences</li><li><svg><use href="#i-check" /></svg>Shared office database</li><li><svg><use href="#i-check" /></svg>Free 1.x updates</li><li><svg><use href="#i-check" /></svg>Priority email support</li></ul>
+              <a class="btn lemonsqueezy-button" data-checkout="office" href="#">Buy office pack</a>
+            </article>
+            <article class="plan reveal">
+              <h3>Studio &middot; 10 users</h3>
+              <p class="price">$899</p><p class="per">one-time &middot; $90 per user</p>
+              <ul><li><svg><use href="#i-check" /></svg>10 user licences</li><li><svg><use href="#i-check" /></svg>Shared office database</li><li><svg><use href="#i-check" /></svg>Free 1.x updates</li><li><svg><use href="#i-check" /></svg>Priority support + setup call</li></ul>
+              <a class="btn ghost lemonsqueezy-button" data-checkout="studio" href="#">Buy studio pack</a>
+            </article>
+          </div>
+          <p class="guarantee"><svg><use href="#i-shield" /></svg>30-day money-back guarantee. Prices in USD; local tax added at checkout where it applies. Pay by card, PayPal, Apple&nbsp;Pay or Google&nbsp;Pay.</p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section alt" id="faq">
+        <div class="wrap">
+          <div class="section-head center">
+            <div class="sheet-tag"><b>A-600</b> FAQ</div>
+            <h2>Questions, answered.</h2>
+          </div>
+          <div class="faq">
+            <details><summary>What happens when the trial ends?</summary><p>Nothing is lost. Your projects, registers and logs stay viewable and you can still back them up. Creating, issuing and exporting new documents needs a licence.</p></details>
+            <details><summary>How do I get my licence key?</summary><p>It's emailed to you straight after checkout. Paste it into <strong>Licence</strong> in the app's sidebar. It activates online once, then works offline.</p></details>
+            <details><summary>Can the whole office share the same records?</summary><p>Yes. Point every PC to the same server folder in Company Settings and everyone works from the same registers and logs. Each person using the app needs their own licence.</p></details>
+            <details><summary>Does it need Revit or AutoCAD?</summary><p>No. It's a standalone Windows app that works alongside any CAD or BIM tool, and stores links to Autodesk Docs, ACC, BIM 360, SharePoint, OneDrive, Dropbox and Google Drive.</p></details>
+            <details><summary>I'm moving to a new PC.</summary><p>Open Licence and choose <em>Move licence to another PC</em>, then activate on the new machine. If the old PC is gone, email us and we'll reset it.</p></details>
+            <details><summary>Can I get a refund?</summary><p>Yes, within 30 days of purchase, no questions asked. See the <a href="refund.html">refund policy</a>.</p></details>
+            <details><summary>Do you offer invoices or bank transfer for larger teams?</summary><p>Yes. Email <a data-email href="#">support</a> with the number of users and your company details.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="section">
+        <div class="wrap">
+          <div class="cta reveal">
+            <h2>Your next submission could take five minutes.</h2>
+            <p>Download the free 14-day trial and import your first drawing register today.</p>
+            <div class="hero-actions">
+              <a class="btn" data-download href="#"><svg><use href="#i-download" /></svg>Download free trial</a>
+              <a class="btn ghost" href="#pricing">See pricing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" style="margin-top:0">
+      <div class="wrap footer-inner">
+        <span>&copy; <span data-year></span> Transmittal Manager</span>
+        <nav><a href="terms.html">Licence terms</a><a href="privacy.html">Privacy</a><a href="refund.html">Refunds</a><a data-email href="#">Contact</a></nav>
+      </div>
+    </footer>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-label="Enlarged screenshot"><img alt="" /></div>
+    <script src="assets/site.js"></script>
+  </body>
+</html>

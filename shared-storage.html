@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shared Storage Setup | Transmittal Manager</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><img src="assets/app-icon.png" alt="" /><div>Transmittal Manager<span>Shared storage setup</span></div></a>
+      <nav class="nav"><a href="index.html">Home</a><a href="product-brief.html">Product Brief</a><a href="cloud-links.html">Cloud Links</a><a href="autodesk-app-store.html">Autodesk Listing</a></nav>
+    </header>
+    <main class="doc-page">
+      <p class="eyebrow">Attachable explanation page</p>
+      <h1>Shared Office Storage</h1>
+      <section class="doc-section">
+        <h2>How It Works</h2>
+        <p>By default, each installation stores its database locally. In Company Settings, the office can choose a shared server folder. The app then uses a database file named <strong>transmittal-manager.db</strong> in that shared location.</p>
+      </section>
+      <section class="doc-section">
+        <h2>Recommended Folder</h2>
+        <p>Use a stable server path that all document-control users can access, for example:</p>
+        <p><strong>\\SERVER\Projects\Document Control\Transmittal Manager Data</strong></p>
+      </section>
+      <section class="doc-section">
+        <h2>What Is Stored</h2>
+        <table class="doc-table">
+          <tr><th>Data</th><th>Storage method</th></tr>
+          <tr><td>Projects, sheets, revisions, transmittals, cover letters</td><td>Stored inside the SQLite database file.</td></tr>
+          <tr><td>Signed transmittal notes</td><td>Copied into the shared data folder under Signed Transmittals.</td></tr>
+          <tr><td>Signed cover letters</td><td>Copied into the shared data folder under Signed Cover Letters.</td></tr>
+          <tr><td>Exported documents</td><td>Saved wherever the user chooses during export; paths are kept in the database.</td></tr>
+        </table>
+      </section>
+      <section class="doc-section">
+        <h2>Good Practice</h2>
+        <ul>
+          <li>Give all users read/write permission to the selected folder.</li>
+          <li>Back up the shared folder daily with the office server backup.</li>
+          <li>Avoid editing the same record on two computers at exactly the same time.</li>
+          <li>Keep exports and signed files in structured project folders.</li>
+        </ul>
+      </section>
+    </main>
+    <footer class="site-footer"><span>Transmittal Manager</span><span>Printable with Ctrl+P</span></footer>
+  </body>
+</html>
