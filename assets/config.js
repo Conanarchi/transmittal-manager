@@ -7,9 +7,9 @@ window.TM_CONFIG = {
 
   // Lemon Squeezy checkout links (Products > Share > copy link), one per plan
   checkout: {
-    single: "https://YOUR-STORE.lemonsqueezy.com/buy/SINGLE-USER-ID",
-    office: "https://YOUR-STORE.lemonsqueezy.com/buy/OFFICE-5-ID",
-    studio: "https://YOUR-STORE.lemonsqueezy.com/buy/STUDIO-10-ID"
+    single: "https://transmittalmanager.lemonsqueezy.com/checkout/buy/3d878687-de69-4538-8c47-43629929f589",
+    office: "https://transmittalmanager.lemonsqueezy.com/checkout/buy/1fed37c1-e4e8-4a71-9874-800366c9819d",
+    studio: "https://transmittalmanager.lemonsqueezy.com/checkout/buy/b89a29c8-241a-4e3c-9887-64acce60f9eb"
   },
 
   // Autodesk App Store listing (after it is approved)
