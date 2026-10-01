@@ -5,6 +5,14 @@ window.TM_CONFIG = {
   // Free-trial installer (GitHub Releases link - see SELLING-GUIDE step 4)
   downloadUrl: "https://github.com/Conanarchi/transmittal-manager/releases/latest/download/Transmittal-Manager-Setup.exe",
 
+  // One installer per platform (file names must match the GitHub release assets).
+  downloads: {
+    win64: "https://github.com/Conanarchi/transmittal-manager/releases/latest/download/Transmittal-Manager-Setup.exe",
+    win32: "https://github.com/Conanarchi/transmittal-manager/releases/latest/download/Transmittal-Manager-Setup-32bit.exe",
+    macArm: "https://github.com/Conanarchi/transmittal-manager/releases/latest/download/Transmittal-Manager-mac-arm64.zip",
+    macIntel: "https://github.com/Conanarchi/transmittal-manager/releases/latest/download/Transmittal-Manager-mac-x64.zip"
+  },
+
   // Lemon Squeezy checkout links (Products > Share > copy link), one per plan
   checkout: {
     single: "https://transmittalmanager.lemonsqueezy.com/checkout/buy/3d878687-de69-4538-8c47-43629929f589",
@@ -24,7 +32,19 @@ window.TM_CONFIG = {
 
 document.addEventListener("DOMContentLoaded", function () {
   var c = window.TM_CONFIG;
-  document.querySelectorAll("[data-download]").forEach(function (a) { a.href = c.downloadUrl; });
+  // Mac visitors get the Mac build on the main buttons (Apple Silicon; Intel is in the "Also for" links).
+  var isMac = /Mac/i.test(navigator.platform || "") || /Mac OS X/.test(navigator.userAgent);
+  var isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent);
+  var main = isMac && !isMobile && c.downloads ? c.downloads.macArm : c.downloadUrl;
+  document.querySelectorAll("[data-download]").forEach(function (a) {
+    a.href = main;
+    if (isMac && !isMobile && a.querySelector("svg")) a.lastChild.textContent = "Download for Mac";
+  });
+  document.querySelectorAll("[data-download-alt]").forEach(function (a) {
+    var url = c.downloads && c.downloads[a.dataset.downloadAlt];
+    if (url) a.href = url; else a.remove();
+    if (a.dataset.downloadAlt === (isMac ? "macArm" : "win64")) a.remove();
+  });
   document.querySelectorAll("[data-checkout]").forEach(function (a) { a.href = c.checkout[a.dataset.checkout] + "?embed=1"; });
   document.querySelectorAll("[data-linkedin]").forEach(function (a) {
     if (c.linkedinUrl) a.href = c.linkedinUrl; else a.remove();
